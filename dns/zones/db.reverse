@@ -1,0 +1,22 @@
+$TTL 604800
+@       IN      SOA     ocp-svc.myopenshift.lan. contact.myopenshift.lan. (
+                  1     ; Serial
+             604800     ; Refresh
+             86400      ; Retry
+             2419200    ; Expire
+             604800     ; Minimum
+)
+        IN      NS      ocp-svc.myopenshift.lan.
+
+215     IN      PTR     ocp-svc.myopenshift.lan.
+215     IN      PTR     api.lab.myopenshift.lan.
+215     IN      PTR     api-int.lab.myopenshift.lan.
+;
+216     IN      PTR     ocp-bootstrap.lab.myopenshift.lan.
+;
+217     IN      PTR     cp1.lab.myopenshift.lan.
+218     IN      PTR     cp2.lab.myopenshift.lan.
+219     IN      PTR     cp3.lab.myopenshift.lan.
+;
+220     IN      PTR     w1.lab.myopenshift.lan.
+221     IN      PTR     w2.lab.myopenshift.lan.

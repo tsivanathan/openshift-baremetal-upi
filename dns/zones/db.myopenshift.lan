@@ -1,0 +1,41 @@
+$TTL 604800
+@       IN      SOA     ocp-svc.myopenshift.lan. contact.myopenshift.lan. (
+                1       ; Serial
+                604800  ; Refresh
+                86400   ; Retry
+                2419200 ; Expire
+                604800  ; Minimum
+)
+        IN      NS      ocp-svc
+ocp-svc.myopenshift.lan.                 IN      A       192.168.110.215
+
+; Temp Bootstrap Node ocp-bootstrap.lab.myopenshift.lan.
+ocp-bootstrap.lab.myopenshift.lan.       IN      A       192.168.110.216
+
+; Control Plane Nodes
+cp1.lab.myopenshift.lan.         IN      A       192.168.110.217
+cp2.lab.myopenshift.lan.         IN      A       192.168.110.218
+cp3.lab.myopenshift.lan.         IN      A       192.168.110.219
+
+; Worker Nodes
+w1.lab.myopenshift.lan.          IN      A       192.168.110.220
+w2.lab.myopenshift.lan.          IN      A       192.168.110.221
+
+; OpenShift Internal - Load balancer
+api.lab.myopenshift.lan.         IN      A       192.168.110.215
+api-int.lab.myopenshift.lan.     IN      A       192.168.110.215
+*.apps.lab.myopenshift.lan.      IN      A       192.168.110.215
+
+; ETCD Cluster
+etcd-0.lab.myopenshift.lan.      IN      A       192.168.110.217
+etcd-1.lab.myopenshift.lan.      IN      A       192.168.110.218
+etcd-2.lab.myopenshift.lan.      IN      A       192.168.110.219
+
+; OpenShift Internal SRV records (cluster name = lab)
+_etcd-server-ssl._tcp.lab.myopenshift.lan. 86400 IN SRV  0       10      2380    etcd-0.lab
+_etcd-server-ssl._tcp.lab.myopenshift.lan. 86400 IN SRV  0       10      2380    etcd-1.lab
+_etcd-server-ssl._tcp.lab.myopenshift.lan. 86400 IN SRV  0       10      2380    etcd-2.lab
+
+oauth-openshift.apps.lab.myopenshift.lan.                IN      A       192.168.110.215
+console-openshift-console.apps.lab.myopenshift.lan.      IN      A       192.168.110.215
+
